@@ -57,11 +57,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# ✅ Railway PostgreSQL
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/licitator',
-        conn_max_age=600
+        default=os.environ.get("DATABASE_URL")
     )
 }
 
